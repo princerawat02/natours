@@ -6,7 +6,7 @@ exports.getOverview = catchAsync(async (req, res, next) => {
   const tours = await Tour.find();
 
   res.status(200).render("overview", {
-    title: "All tours",
+    title: "All Tours",
     tours,
   });
 });
@@ -16,7 +16,7 @@ exports.getTour = catchAsync(async (req, res, next) => {
     path: "reviews",
   });
   res.status(200).render("tour", {
-    title: "The forest hicker tour",
+    title: `${tour.name} Tour`,
     tour,
   });
 });
