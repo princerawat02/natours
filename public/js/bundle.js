@@ -12853,7 +12853,7 @@ var _login = require("./login");
 var _mapbox = require("./mapbox");
 //DOM ELEMENTS
 var mapBox = document.querySelector("#map");
-var loginForm = document.querySelector(".form");
+var loginForm = document.querySelector(".form--login");
 var logutOutBtn = document.querySelector(".nav__el--logout");
 
 //DELEGATIONS
