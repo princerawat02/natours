@@ -16,6 +16,7 @@ const reviewRouter = require("./routes/reviewRoutes");
 const viewRouter = require("./routes/viewRoutes");
 
 const app = express();
+console.log(process.env.NODE_ENV);
 
 // Setting pug as view engine and Path
 app.set("view engine", "pug");
