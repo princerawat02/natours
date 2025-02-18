@@ -12,10 +12,19 @@ module.exports = class Email {
   }
 
   newTransport() {
-    if (process.env.NODE_ENV === 'production') {
-      // Sendgrid For PRODUCTION
-      return 1;
-    }
+    // if (process.env.NODE_ENV === 'production') {
+    //   // Sendgrid For PRODUCTION
+    //   return nodemailer.createTransport({
+    //     // service: 'Brevo',
+    //     host: process.env.BREVO_HOST,
+    //     port: process.env.BREVO_PORT,
+    //     secure: false,
+    //     auth: {
+    //       user: process.env.BREVO_LOGIN,
+    //       pass: process.env.BREVO_PASSWORD,
+    //     },
+    //   });
+    // }
     // For DEVELOPMENT
     return nodemailer.createTransport({
       host: process.env.EMAIL_HOST,
@@ -56,5 +65,12 @@ module.exports = class Email {
   async sendWelcome(template, subject) {
     //Send the actual email
     await this.send('Welcome', 'Welcome to he Natours!');
+  }
+
+  async sendPasswordReset() {
+    await this.send(
+      'passwordReset',
+      'Your password reset token (valid for only 10 minutes)'
+    );
   }
 };
