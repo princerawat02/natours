@@ -12908,11 +12908,11 @@ function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyri
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
 function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
 //DOM ELEMENTS
-var mapBox = document.querySelector("#map");
-var loginForm = document.querySelector(".form--login");
-var userDataForm = document.querySelector(".form-user-data");
-var userPasswordForm = document.querySelector(".form-user-password");
-var logutOutBtn = document.querySelector(".nav__el--logout");
+var mapBox = document.querySelector('#map');
+var loginForm = document.querySelector('.form--login');
+var userDataForm = document.querySelector('.form-user-data');
+var userPasswordForm = document.querySelector('.form-user-password');
+var logutOutBtn = document.querySelector('.nav__el--logout');
 
 //DELEGATIONS
 if (mapBox) {
@@ -12920,51 +12920,49 @@ if (mapBox) {
   (0, _mapbox.displayMap)(locations);
 }
 if (loginForm) {
-  loginForm.addEventListener("submit", function (e) {
+  loginForm.addEventListener('submit', function (e) {
     e.preventDefault();
     //VALUES
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
     (0, _login.login)(email, password);
   });
 }
-if (logutOutBtn) logutOutBtn.addEventListener("click", _login.logout);
+if (logutOutBtn) logutOutBtn.addEventListener('click', _login.logout);
 if (userDataForm) {
-  userDataForm.addEventListener("submit", function (e) {
+  userDataForm.addEventListener('submit', function (e) {
     e.preventDefault();
-    //VALUES
-    var name = document.getElementById("name").value;
-    var email = document.getElementById("email").value;
-    (0, _updateSettings.updateSettings)({
-      name: name,
-      email: email
-    }, "data");
+    var form = new FormData();
+    form.append('name', document.getElementById('name').value);
+    form.append('email', document.getElementById('email').value);
+    form.append('photo', document.getElementById('photo').files[0]);
+    (0, _updateSettings.updateSettings)(form, 'data');
   });
 }
 if (userPasswordForm) {
-  userPasswordForm.addEventListener("submit", /*#__PURE__*/function () {
+  userPasswordForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(e) {
       var passwordCurrent, password, passwordConfirm;
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
             e.preventDefault();
-            document.querySelector(".btn--save-password").innerHTML = "Updating...";
+            document.querySelector('.btn--save-password').innerHTML = 'Updating...';
             //VALUES
-            passwordCurrent = document.getElementById("password-current").value;
-            password = document.getElementById("password").value;
-            passwordConfirm = document.getElementById("password-confirm").value;
+            passwordCurrent = document.getElementById('password-current').value;
+            password = document.getElementById('password').value;
+            passwordConfirm = document.getElementById('password-confirm').value;
             _context.next = 7;
             return (0, _updateSettings.updateSettings)({
               password: password,
               passwordCurrent: passwordCurrent,
               passwordConfirm: passwordConfirm
-            }, "password");
+            }, 'password');
           case 7:
-            document.querySelector(".btn--save-password").innerHTML = "save password";
-            document.getElementById("password-current").value = "";
-            document.getElementById("password").value = "";
-            document.getElementById("password-confirm").value = "";
+            document.querySelector('.btn--save-password').innerHTML = 'save password';
+            document.getElementById('password-current').value = '';
+            document.getElementById('password').value = '';
+            document.getElementById('password-confirm').value = '';
           case 11:
           case "end":
             return _context.stop();
@@ -13001,7 +12999,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57540" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64195" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
