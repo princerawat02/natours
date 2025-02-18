@@ -25,7 +25,7 @@ const multerFilter = (req, file, cb) => {
     // If it's an image, allow the file to be uploaded
     cb(null, true);
   } else {
-    cb(new AppError('Not an image! Please upload only images.', 400), true);
+    cb(new AppError('Not an image! Please upload only images.', 400), false);
   }
 };
 
@@ -38,21 +38,21 @@ const upload = multer({
 exports.uploadUserPhoto = upload.single('photo');
 
 // Middleware function to resize the uploaded photo before saving it
-exports.resizeUserPhoto = (req, res, next) => {
+exports.resizeUserPhoto = catchAsync(async (req, res, next) => {
   // Check if a file was uploaded (multer stores file info in req.file)
   if (!req.file) return next();
 
   // Generate a new filename for the image based on the user ID and the current timestamp
   req.file.filename = `user-${req.user.id}-${Date.now()}.jpeg`;
 
-  sharp(req.file.buffer)
+  await sharp(req.file.buffer)
     .resize(500, 500)
     .toFormat('jpeg')
     .jpeg({ quality: 90 })
     .toFile(`public/img/users/${req.file.filename}`); // Save the resized image to the specified file path
 
   next();
-};
+});
 
 const filterObj = (obj, ...allowedFields) => {
   const newObj = {};
