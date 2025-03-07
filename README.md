@@ -1,26 +1,26 @@
-# Natours
+# 🌍 Natours
 
 A Node.js, Express, and MongoDB-based application built as part of my learning journey.
 
-**Live Project:** [Natours Live Demo](https://natours-app-rxpo.onrender.com)
+🚀 **Live Project:** [Natours Live Demo](https://natours-app-rxpo.onrender.com)
 
 ---
 
-## Skills Learned
+## 🛠️ Skills Learned
 
 - **Backend Development**: Building RESTful APIs with **Node.js** and **Express**.
 - **Database Management**: Integrating **MongoDB** with **Mongoose** for data storage and management.
 - **Authentication**: Implementing **JWT** (JSON Web Tokens) for secure user authentication.
-- **Security**: Adding **helmet**, **xss-clean**, and **express-rate-limit** for enhanced security.
+- **Security**: Enhancing security with **helmet**, **xss-clean**, and **express-rate-limit**.
 - **File Uploads**: Using **multer** for handling file uploads.
 - **Environment Variables**: Managing sensitive information with **dotenv**.
 - **Email Service**: Sending emails using **Nodemailer**.
-- **Frontend Build Tools**: Using **Parcel** to bundle frontend assets.
+- **Frontend Build Tools**: Bundling assets with **Parcel**.
 - **Data Validation**: Validating user input with **validator**.
 
 ---
 
-## Technologies Used
+## 🔧 Technologies Used
 
 - **Node.js** - JavaScript runtime for backend development.
 - **Express.js** - Web framework for building RESTful APIs.
@@ -38,18 +38,17 @@ A Node.js, Express, and MongoDB-based application built as part of my learning j
 
 ---
 
-## API Documentation
+## 📜 API Documentation
 
-The **Natours API** allows you to interact with various resources such as tours, users, and bookings.
+The **Natours API** provides endpoints to interact with resources like tours, users, and bookings.
 
-You can refer to the full API documentation using the link below:
+### 🌐 Base URL
+- The base URL for all API requests:  
+  `https://natours-app-rxpo.onrender.com/api/v1`
 
-[API Documentation on Postman](https://documenter.getpostman.com/view/38300255/2sAYX2MinL)
-
----
-
-## License
-
-This project is licensed under the MIT License.
-
----
+### 🔑 Authentication
+- All requests (except **signup**, **login**, and **forgot-password**) require a **JWT** token for authentication.
+- Use the **login** endpoint to obtain the token.
+- Include the token in the `Authorization` header like so:
+  ```bash
+  Authorization: Bearer <your-token>
