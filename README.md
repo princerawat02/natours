@@ -46,9 +46,6 @@ The **Natours API** provides endpoints to interact with resources like tours, us
 - The base URL for all API requests:  
   `https://natours-app-rxpo.onrender.com/api/v1`
 
-### 🔑 Authentication
-- All requests (except **signup**, **login**, and **forgot-password**) require a **JWT** token for authentication.
-- Use the **login** endpoint to obtain the token.
-- Include the token in the `Authorization` header like so:
-  ```bash
-  Authorization: Bearer <your-token>
+##You can refer to the full API documentation using the link below:
+
+[API Documentation on Postman](https://documenter.getpostman.com/view/38300255/2sAYX2MinL)
